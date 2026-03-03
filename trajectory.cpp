@@ -52,19 +52,19 @@ int main() {
     cin >> vy;
 
     // Initial position (x, y)
-    Matrix position = createVector(x, y); // Start at height 10
+    Matrix position = createVector(x, y);
 
     // Initial velocity (vx, vy)
-    Matrix velocity = createVector(vx, vy); // 2 m/s horizontally
+    Matrix velocity = createVector(vx, vy);
 
     // Acceleration due to gravity (ax, ay)
-    Matrix gravity = createVector(0.0, -9.81); // m/s^2
+    Matrix gravity = createVector(0.0, -9.81);
 
     // Time step
-    double deltaTime = 0.1; // seconds
+    double deltaTime = 0.1;
 
     // Simulation duration
-    double duration; // seconds
+    double duration;
     cout << "Simulation Duration (seconds): ";
     cin >> duration;
 
@@ -73,24 +73,25 @@ int main() {
 
     // Grid dimensions for plotting
     int gridWidth = steps;
-    int gridHeight = position.at(1,0)+1;
+    int gridHeight = position.at(1,0) + 1;
 
     // Store the trajectory
     vector<Matrix> trajectory;
 
     // Run the simulation
     for (int i = 0; i < steps; ++i) {
-        // TODO: You need to provide code to implement the physics simulation.
-        // What needs to happen is this:
-        // 1. Update the position of the object based on the current velocity
-        //    and delta time.
-        // 2. Update the velocity based on the gravitational acceleration.
-        // 3. If the current position exceeds the grid height, update the grid
-        //    height to the y coordinate + 1.
-        // YOUR CODE HERE
 
-        // We will be talking about the vector object a little later. If you 
-        // want to read ahead though, I encourage that!
+        // 1) Update position: X = X + V*dt
+        position = position + velocity * deltaTime;
+
+        // 2) Update velocity: V = V + A*dt
+        velocity = velocity + gravity * deltaTime;
+
+        // 3) If the object goes higher than current grid height, update it
+        if (position.at(1, 0) + 1 > gridHeight) {
+            gridHeight = static_cast<int>(position.at(1, 0)) + 1;
+        }
+
         // Store the current position
         trajectory.push_back(position);
     }
