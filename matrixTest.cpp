@@ -15,24 +15,24 @@ int main()
     Matrix b{3,3};
 
     // Test out the input
-    cout << "Enter a 3x3 matrix (A)" << endl;
+    cout << "Enter a 3x3 matrix (A)\n" << flush;
     cin >> a;
-    cout << "Enter a 3x3 matrix (B)" << endl;
+    cout << "Enter a 3x3 matrix (B)\n" << flush;
     cin >> b;
 
     // Test out the output
-    cout << "Matrix A" << endl;
-    cout << a << endl;
+    cout << "Matrix A\n";
+    cout << a;
 
-    cout << "Matrix B" << endl;
-    cout << b << endl;
+    cout << "Matrix B\n";
+    cout << b;
 
     // Test out matrix arithmetic
-    cout << "A + B" << endl << a+b << endl;
-    cout << "A - B" << endl << a-b << endl;
-    cout << "A * B" << endl << a*b << endl;
+    cout << "A + B\n" << a+b;
+    cout << "A - B\n" << a-b;
+    cout << "A * B\n" << a*b;
 
     // Test out scalar multiplication
-    cout << "2*A" << endl << 2*a << endl;
-    cout << "A*2" << endl << a*2 << endl;
+    cout << "2*A\n" << 2*a;
+    cout << "A*2\n" << a*2;
 }

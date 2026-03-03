@@ -69,8 +69,7 @@ int main()
 
     // Display the transformation matrix
     cout << "Transformation Matrix: " << endl;
-    cout << transform << endl;
-    cout << endl;
+    cout << transform;
 
     // transform points
     while (cin) {
@@ -148,7 +147,7 @@ Matrix transformMenu()
 
     do {
         // get the choice
-        cout << "(T)ranslate, (R)otate, (S)cale, or (D)one? ";
+        cout << "(T)ranslate, (R)otate, (S)cale, or (D)one? " << flush;
         if (!(cin >> choice)) {
             break;
         }
@@ -158,6 +157,7 @@ Matrix transformMenu()
         {
             case 'T':
                 cout << "Enter the x and y translation: ";
+                cout.flush();
                 if (!(cin >> x >> y)) {
                     return result;
                 }
@@ -166,6 +166,7 @@ Matrix transformMenu()
 
             case 'R':
                 cout << "Enter the angle of rotation (degrees): ";
+                cout.flush();
                 if (!(cin >> angle)) {
                     return result;
                 }
@@ -174,6 +175,7 @@ Matrix transformMenu()
 
             case 'S':
                 cout << "Enter the x and y scaling factors: ";
+                cout.flush();
                 if (!(cin >> x >> y)) {
                     return result;
                 }
@@ -198,7 +200,7 @@ Matrix transformMenu()
 Matrix getPoint()
 {
     double x, y;
-    cout << "\nEnter x and y: ";
+    cout << "Enter x and y: " << flush;
     cin >> x >> y;
 
     Matrix p(3, 1);
