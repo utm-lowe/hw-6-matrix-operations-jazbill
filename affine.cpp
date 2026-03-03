@@ -144,31 +144,39 @@ Matrix transformMenu()
 {
     Matrix result = transIdent();
     double x, y, angle;
-    char choice;
+    char choice = 'D';
 
     do {
         // get the choice
         cout << "(T)ranslate, (R)otate, (S)cale, or (D)one? ";
-        cin >> choice;
-        choice = toupper(choice);
+        if (!(cin >> choice)) {
+            break;
+        }
+        choice = toupper(static_cast<unsigned char>(choice));
 
         switch (choice)
         {
             case 'T':
                 cout << "Enter the x and y translation: ";
-                cin >> x >> y;
+                if (!(cin >> x >> y)) {
+                    return result;
+                }
                 result = translate(x, y) * result;
                 break;
 
             case 'R':
                 cout << "Enter the angle of rotation (degrees): ";
-                cin >> angle;
+                if (!(cin >> angle)) {
+                    return result;
+                }
                 result = transRotate(angle) * result;
                 break;
 
             case 'S':
                 cout << "Enter the x and y scaling factors: ";
-                cin >> x >> y;
+                if (!(cin >> x >> y)) {
+                    return result;
+                }
                 result = transScale(x, y) * result;
                 break;
 
@@ -177,7 +185,7 @@ Matrix transformMenu()
                 break;
 
             default:
-                cout << "Invalid choice." << endl;
+                cout << "Invalid choice. Please try again." << endl;
                 break;
         }
 
