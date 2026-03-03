@@ -10,6 +10,7 @@
 #include "matrix.h"
 #include <iostream>
 #include <cmath>
+#include <cctype>
 
 using namespace std;
 
@@ -101,7 +102,8 @@ Matrix transIdent()
 // build a rotation matrix (angle is in degrees)
 Matrix transRotate(double angle)
 {
-    double rad = angle * M_PI / 180.0;
+    const double pi = acos(-1.0);
+    double rad = angle * pi / 180.0;
     double c = cos(rad);
     double s = sin(rad);
 
@@ -175,7 +177,7 @@ Matrix transformMenu()
                 break;
 
             default:
-                cout << "Invalid choice. Please try again." << endl;
+                cout << "Invalid choice." << endl;
                 break;
         }
 
