@@ -135,7 +135,6 @@ ostream& operator<<(ostream& os, const Matrix& m)
             os << setw(10) << m.at(r, c) << " ";
         os << "\n";
     }
-    os << "\n";
     return os;
 }
 

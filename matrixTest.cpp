@@ -22,17 +22,17 @@ int main()
 
     // Test out the output
     cout << "Matrix A\n";
-    cout << a;
+    cout << a << "\n";
 
     cout << "Matrix B\n";
-    cout << b;
+    cout << b << "\n";
 
     // Test out matrix arithmetic
-    cout << "A + B\n" << a+b;
-    cout << "A - B\n" << a-b;
-    cout << "A * B\n" << a*b;
+    cout << "A + B\n" << a+b << "\n";
+    cout << "A - B\n" << a-b << "\n";
+    cout << "A * B\n" << a*b << "\n";
 
     // Test out scalar multiplication
-    cout << "2*A\n" << 2*a;
+    cout << "2*A\n" << 2*a << "\n";
     cout << "A*2\n" << a*2;
 }

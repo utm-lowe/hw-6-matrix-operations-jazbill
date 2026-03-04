@@ -69,7 +69,8 @@ int main()
 
     // Display the transformation matrix
     cout << "Transformation Matrix: " << endl;
-    cout << transform;
+    cout << transform << endl;
+    cout << endl;
 
     // transform points
     while (cin) {
@@ -199,7 +200,7 @@ Matrix transformMenu()
 // get the point from the user
 Matrix getPoint()
 {
-    double x, y;
+    double x = 0.0, y = 0.0;
     cout << "Enter x and y: " << flush;
     cin >> x >> y;
 

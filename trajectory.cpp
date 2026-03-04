@@ -30,11 +30,11 @@ void plotTrajectory(const vector<Matrix>& trajectory, int gridWidth, int gridHei
     }
 
     // Print the grid
-    for (const auto& row : grid) {
-        for (const auto& cell : row) {
+    for (size_t row = 0; row < grid.size(); ++row) {
+        for (const auto& cell : grid[row]) {
             cout << cell;
         }
-        cout << endl;
+        if (row + 1 < grid.size()) cout << '\n';
     }
 }
 
@@ -80,7 +80,6 @@ int main() {
 
     // Run the simulation
     for (int i = 0; i < steps; ++i) {
-
         // 1) Update position: X = X + V*dt
         position = position + velocity * deltaTime;
 
